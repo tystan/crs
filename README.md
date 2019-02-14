@@ -73,11 +73,34 @@ perform_crs(
 
 The resulting output:
 
-|param |   est|    lo|    up|
-|:-----|-----:|-----:|-----:|
-|sens  | 0.932| 0.894| 0.958|
-|spec  | 0.901| 0.851| 0.939|
+|param |     p| var_p|  se_p|trans  |  p_lo|  p_up|
+|:-----|-----:|-----:|-----:|:------|-----:|-----:|
+|sens  | 0.919| 0.000| 0.018|probit | 0.879| 0.948|
+|spec  | 0.877| 0.001| 0.023|probit | 0.827| 0.916|
 
+
+You can also recreate the results of [Hawkins et al. (2001)](https://www.ncbi.nlm.nih.gov/pubmed/11427955/) by running the below.
+
+
+```R
+data(hawkins2001) # load data from Hawkins et al. (2001)
+hawkins2001       # have a look at data
+# run CRS analysis on hawkins2001 data
+perform_crs(
+  hawkins2001,             # data
+  index     =  "index",    # index test column in the data
+  imperfect =  "ref",      # imperfect truth column in the data
+  resolver  =  "resolve"   # resolver test column in the data (with NAs present)
+)
+```
+
+|param |     p| var_p|  se_p|trans  |  p_lo|  p_up|
+|:-----|-----:|-----:|-----:|:------|-----:|-----:|
+|sens  | 0.975| 0.000| 0.006|probit | 0.962| 0.984|
+|spec  | 0.550| 0.001| 0.030|probit | 0.490| 0.609|
+
+
+# Comparison to sensitivity and specificity calculations using the imperfect truth only
 
 CRS can be compared to the index test against the imperfect truth by running the following.
 
