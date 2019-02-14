@@ -22,7 +22,7 @@ To install and load in R, run:
 ```R
 library(devtools) # see http://cran.r-project.org/web/packages/devtools/README.html
 devtools::install_github('tystan/crs')
-library(mcrs)
+library(crs)
 ```
 
 ## Help
@@ -100,7 +100,7 @@ perform_crs(
 |spec  | 0.550| 0.001| 0.030|probit | 0.490| 0.609|
 
 
-# Comparison to sensitivity and specificity calculations using the imperfect truth only
+## Comparison to sensitivity and specificity calculations using the imperfect truth only
 
 CRS can be compared to the index test against the imperfect truth by running the following.
 
