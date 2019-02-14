@@ -107,8 +107,7 @@ CRS can be compared to the index test against the imperfect truth by running the
 ```r
 # the sens+spec estimates using the imperfect truth only
 get_sens_spec(
-  table(brenton2019[["S"]], brenton2019[["A"]]), 
-  2
+  table(brenton2019[["S"]], brenton2019[["A"]])
 )
 ```
 
