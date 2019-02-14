@@ -14,7 +14,7 @@ The main function `perform_crs(...)` takes in a dataset containing one row per s
 Details are available in the paper:
 [Clinical evaluation of APAS Independence: automated imaging and interpretation of urine cultures using artificial intelligence with composite reference standard discrepant resolution ](https://notavailableyetsorry.com/). 
 
-Additional background information on CRScan be found in [Hawkins et al. (2001)](https://www.ncbi.nlm.nih.gov/pubmed/11427955/) and [Alonzo and Pepe (1999)](https://www.ncbi.nlm.nih.gov/pubmed/10544302/). 
+Additional background information on CRS can be found in [Hawkins et al. (2001)](https://www.ncbi.nlm.nih.gov/pubmed/11427955/) and [Alonzo and Pepe (1999)](https://www.ncbi.nlm.nih.gov/pubmed/10544302/). 
 
 
 # Installation
@@ -59,7 +59,7 @@ brenton2019       # have a look at data
 ## ... with 871 more rows
 ```
 
-To run CRS pass the data (or any dataset in the required form) to the `perform_crs()` function.
+To run CRS, pass the data (or any dataset in the required form) to the `perform_crs()` function.
 
 ```r
 # run CRS analysis on brenton2019 data
@@ -102,7 +102,9 @@ perform_crs(
 
 ## Comparison to sensitivity and specificity calculations using the imperfect truth only
 
-CRS can be compared to the index test against the imperfect truth by running the following.
+CRS can be compared to the index test against the imperfect truth by using the `get_sens_spec()` function.
+
+For the `brenton2019` data:
 
 ```r
 # the sens+spec estimates using the imperfect truth only
@@ -115,6 +117,23 @@ get_sens_spec(
 |:-----|-----:|-------:|-----:|-----:|-----:|
 |sens  |   449|     423| 0.942| 0.917| 0.960|
 |spec  |   432|     342| 0.792| 0.751| 0.827|
+
+
+
+Similarly, for the `hawkins2001` data:
+
+```r
+# the sens+spec estimates using the imperfect truth only
+get_sens_spec(
+  table(hawkins2001[["ref"]], hawkins2001[["index"]])
+)
+```
+
+|param | cases| correct|   est|    lo|    up|
+|:-----|-----:|-------:|-----:|-----:|-----:|
+|sens  |  2000|    1800| 0.900| 0.886| 0.912|
+|spec  |  1000|     400| 0.400| 0.370| 0.431|
+
 
 
 # Referencing this work
