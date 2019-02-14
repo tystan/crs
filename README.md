@@ -1,1 +1,106 @@
-crs
+# crs
+
+CRS: Composite Reference Standard in [`R`](https://cran.r-project.org/)
+
+## Purpose
+
+
+The functions are written to perform sensitivity and specificity calculations using CRS for any binary outcome (and produce valid confidence intervals).
+
+
+
+The main function `perform_crs(...)` takes in a dataset containing one row per sample and at least three columns that represent the index text, imperfect truth and the resolver. The index test and the imperfect truth are expected to have no missing values, however as per the method, the resolver column may contain missing (`NA`) values as not every sample is expected to have a resolver result.
+
+Details are available in the paper:
+[Clinical evaluation of APAS Independence: automated imaging and interpretation of urine cultures using artificial intelligence with composite reference standard discrepant resolution ](https://notavailableyetsorry.com/). 
+
+Additional background information on CRScan be found in [Hawkins et al. (2001)](https://www.ncbi.nlm.nih.gov/pubmed/11427955/) and [Alonzo and Pepe (1999)](https://www.ncbi.nlm.nih.gov/pubmed/10544302/). 
+
+
+# Installation
+To install and load in R, run:
+```R
+library(devtools) # see http://cran.r-project.org/web/packages/devtools/README.html
+devtools::install_github('tystan/crs')
+library(mcrs)
+```
+
+## Help
+```r
+### see help file to run example
+?perform_crs
+```
+
+A PDF manual of the function descriptions is included in the repository here: [/inst/doc/crs-help.pdf](https://github.com/tystan/crs/blob/master/inst/doc/crs-help.pdf).
+
+
+
+# Example usage
+
+You can reproduce the analysis in Brenton et al. (2019). First load one of the dataframes that come with the package: `brenton2019`.
+
+```R
+data(brenton2019) # load data from Brenton et al. (2019)
+?brenton2019      # will bring up a description of the data
+brenton2019       # have a look at data
+## A tibble: 881 x 3
+##       A     S     P
+##   <int> <int> <int>
+## 1     1     1    NA
+## 2     1     1    NA
+## 3     2     2    NA
+## 4     2     2    NA
+## 5     2     1     2
+## 6     1     1     1
+## 7     1     1     1
+## 8     1     1    NA
+## 9     1     1    NA
+##10     1     1     1
+## ... with 871 more rows
+```
+
+To run CRS pass the data (or any dataset in the required form) to the `perform_crs()` function.
+
+```r
+# run CRS analysis on brenton2019 data
+perform_crs(
+  brenton2019,       # data
+  index     =  "A",  # index test
+  imperfect =  "S",  # imperfect truth
+  resolver  =  "P"   # resolver test (with NAs present)
+)
+```
+
+The resulting output:
+
+|param |   est|    lo|    up|
+|:-----|-----:|-----:|-----:|
+|sens  | 0.932| 0.894| 0.958|
+|spec  | 0.901| 0.851| 0.939|
+
+
+CRS can be compared to the index test against the imperfect truth by running the following.
+
+```r
+# the sens+spec estimates using the imperfect truth only
+get_sens_spec(
+  table(brenton2019[["S"]], brenton2019[["A"]]), 
+  2
+)
+```
+
+|param | cases| correct|   est|    lo|    up|
+|:-----|-----:|-------:|-----:|-----:|-----:|
+|sens  |   449|     423| 0.942| 0.917| 0.960|
+|spec  |   432|     342| 0.792| 0.751| 0.827|
+
+
+# Referencing this work
+
+Please run the following to get citation information when referencing this code.
+```r
+citation("crs")
+```
+
+<!--- ![](https://github.com/tystan/crs/blob/master/example.png) --->
+
