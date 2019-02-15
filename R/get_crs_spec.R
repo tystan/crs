@@ -1,4 +1,4 @@
-get_crs_spec <- function(marg, rslv, trans_method = "probit") {
+get_crs_spec <- function(marg, rslv, trans_method = "probit", ci_lvl = 0.95) {
 
   n <- sum(marg)
   m_ij <- apply(rslv, 1:2, sum)
@@ -29,6 +29,6 @@ get_crs_spec <- function(marg, rslv, trans_method = "probit") {
   p <- E_x/E_y # i.e., spec_est <- true_neg / (true_neg + false_pos)
   var_p <- var_x_on_y(E_x, E_y, var_X, var_Y, cov_XY)
 
-  return(trans_ci(p, var_p, trans_method = trans_method))
+  return(trans_ci(p, var_p, trans_method = trans_method, ci_lvl = ci_lvl))
 
 }

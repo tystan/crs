@@ -34,8 +34,9 @@ perform_crs <-
 
     marg <- get_marg_array(dat, index = index, imperfect = imperfect)
     rslv <- get_rslv_array(dat, index = index, imperfect = imperfect, resolver = resolver)
-    crs <- table_crs(marg, rslv, trans_method = trans_method)
-    crs
+    crs <- table_crs(marg, rslv, trans_method = trans_method, alpha = alpha)
+
+    return(crs)
 
 
   }
