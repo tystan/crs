@@ -91,7 +91,7 @@ perform_crs(
   index     =  "index",    # index test column in the data
   imperfect =  "ref",      # imperfect truth column in the data
   resolver  =  "resolve"   # resolver test column in the data (with NAs present)
-)$se_p
+)
 ```
 
 |param |     p|    var_p|    se_p|trans  |  p_lo|  p_up|
