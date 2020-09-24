@@ -3,20 +3,21 @@ bibentry(bibtype = "Article",
                         "interpretation of urine cultures using artificial intelligence ",
                         "with composite reference standard discrepant resolution."),
          author = c(person("Lisa", "Brenton"),
-                    person("Darren", "Jardine"),
                     person("Mary Jo", "Waters"),
                     person("Tyman", "Stanford"),
                     person("Steven", "Giglio")),
-         year = 2019,
-         url = "https://github.com/tystan/crs",
-         journal = "Submitted for publication",
+         year = 2020,
+         url = "https://doi.org/10.1016/j.mimet.2020.106047",
+         journal = "Journal of Microbiological Methods",
+         volume = "177",
          textVersion =
-           paste0("L Brenton, D Jardine, MJ Waters, ",
+           paste0("L Brenton, MJ Waters, ",
                   "T Stanford and S Giglio (",
-                  2019,
+                  2020,
                   "). Clinical evaluation of APAS Independence: automated imaging and ",
                   "interpretation of urine cultures using artificial intelligence ",
-                  "with composite reference standard discrepant resolution."))
+                  "with composite reference standard discrepant resolution. ",
+                  "Journal of Microbiological Methods. 177: 106047."))
 
 
 
