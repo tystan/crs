@@ -12,7 +12,7 @@ The functions are written to perform sensitivity and specificity calculations us
 The main function `perform_crs(...)` takes in a dataset containing one row per sample and at least three columns that represent the index text, imperfect truth and the resolver. The index test and the imperfect truth are expected to have no missing values, however as per the method, the resolver column may contain missing (`NA`) values as not every sample is expected to have a resolver result.
 
 Details are available in the paper:
-[Clinical evaluation of APAS Independence: automated imaging and interpretation of urine cultures using artificial intelligence with composite reference standard discrepant resolution ](https://notavailableyetsorry.com/). 
+[Clinical evaluation of the APAS Independence: Automated imaging and interpretation of urine cultures using artificial intelligence with composite reference standard discrepant resolution](https://doi.org/10.1016/j.mimet.2020.106047). 
 
 Additional background information on CRS can be found in [Hawkins et al. (2001)](https://www.ncbi.nlm.nih.gov/pubmed/11427955/) and [Alonzo and Pepe (1999)](https://www.ncbi.nlm.nih.gov/pubmed/10544302/). 
 
