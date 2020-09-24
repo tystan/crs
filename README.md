@@ -37,7 +37,7 @@ A PDF manual of the function descriptions is included in the repository here: [/
 
 # Example usage
 
-You can reproduce the analysis in Brenton et al. (2019). First load one of the dataframes that come with the package: `brenton2019`.
+You can reproduce the analysis in [Brenton et al. (2019)](https://doi.org/10.1016/j.mimet.2020.106047). First load one of the dataframes that come with the package: `brenton2019`.
 
 ```R
 data(brenton2019) # load data from Brenton et al. (2019)
