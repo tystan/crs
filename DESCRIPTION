@@ -3,7 +3,7 @@ Type: Package
 Title: CRS (composite reference standard) confidence intervals calculator
 Version: 0.1.0
 Author: Ty Stanford
-Maintainer: Ty Stanford <tyman.stanford@lbtinnovations.com>
+Maintainer: Ty Stanford <tystan@gmail.com>
 Description: Functions to perform CRS calculations on sample data.
 License: GPL-2.0
 Encoding: UTF-8
